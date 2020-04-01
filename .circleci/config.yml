@@ -3,11 +3,12 @@ jobs:
   build:
     #might need to add working directory 
     docker:
-      -image: circleci/node
-      -image: postgres:9.6.2-alpine
-      environment:
-        POSTGRES_USER: your_postgres_user
-        POSTGRES_DB: your_postgres_test
+        - image: circleci/node  
+        - image: postgres:9.6.2-alpine
+          environment:
+            POSTGRES_USER: your_postgres_user
+            POSTGRES_DB: your_postgres_test           
+ 
 
     steps:
       - checkout # check out the code in the project directory
