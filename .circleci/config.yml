@@ -12,3 +12,9 @@ jobs:
           data-dir: ~/project/results
           upload: true
 # Add below this line, do not modify above
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
+    
