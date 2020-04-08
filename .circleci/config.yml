@@ -1,18 +1,17 @@
   
 version: 2.1
 orbs:
-  build-tools: circleci/build-tools@2.6.3 # This is an orb. If you are not yet familiar with orbs, we will go over them soon. Orbs allow us to make our configs shorter by allowing us to "import" config in a similar way to a programming language's package manager.
-workflows:  
-  jobs:
-    build:
-      docker: 
-        - image: circleci/node 
-      steps:
-        - build-tools/test-results:
-            name: Generating test results.
-            data-dir: ~/project/results
-            upload: true
-# # Add below this line, do not modify above
+  build-tools: circleci/build-tools@2.2.0 # This is an orb. If you are not yet familiar with orbs, we will go over them soon. Orbs allow us to make our configs shorter by allowing us to "import" config in a similar way to a programming language's package manager.
+jobs:
+  build:
+    docker: 
+      - image: circleci/node 
+    steps:
+      - build-tools/test-results
+          # name: Generating test results.
+          # data-dir: ~/project/results
+          # upload: true
+# Add below this line, do not modify above
 
 # orbs:
 #   hello: circleci/hello-build@0.0.1    
@@ -20,3 +19,18 @@ workflows:
 #   info:
 #     jobs:
 #       - hello/hello-builds  
+# workflows:
+#   version: 2.1
+#     jobs:
+#       - build
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      
+      
+
+
+      
+    
