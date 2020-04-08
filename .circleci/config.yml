@@ -8,11 +8,10 @@ jobs:
         - run:
             name: Generate app
             command: echo app >> app/linux/app.linux
-        - run: echo pwd    
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: ~/project/app
+            root: app
             paths: /linux/app.linux
 
   build-windows:
@@ -26,7 +25,7 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: ~/project/app
+            root: app
             paths: /windows/app.windows
 
   build-mac:
@@ -40,7 +39,7 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: ~/project/app
+            root: app
             paths: mac/app.mac
 
   deploy:
@@ -51,7 +50,7 @@ jobs:
             at: /tmp/app
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
             path: app
-            destination: app/artifacts
+            destination: apps
 
 workflows:
   version: 2
