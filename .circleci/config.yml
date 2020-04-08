@@ -8,10 +8,11 @@ jobs:
         - run:
             name: Generate app
             command: echo app >> app/linux/app.linux
+        - run: echo pwd    
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: app
+            root: ~/project/app
             paths: /linux/app.linux
 
   build-windows:
@@ -25,7 +26,7 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: app
+            root: ~/project/app
             paths: /windows/app.windows
 
   build-mac:
@@ -39,7 +40,7 @@ jobs:
         - run: cd ~/project/app && pwd && ls
           # Edit below here
         - persist_to_workspace: 
-            root: app
+            root: ~/project/app
             paths: mac/app.mac
 
   deploy:
