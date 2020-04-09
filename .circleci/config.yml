@@ -13,6 +13,7 @@ jobs:
         - persist_to_workspace: 
             root: app
             paths: linux/app.linux
+        
 
   build-windows:
     docker:
@@ -47,6 +48,8 @@ jobs:
       docker:
         - image: node
       steps:
+        - run: echo "hello world"   
+        - run: cat app/mac/app.mac
         - attach_workspace:
             at: /tmp/workspace
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
