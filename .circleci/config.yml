@@ -49,9 +49,11 @@ jobs:
         - image: node
       steps:
         - run: echo "hello world"   
-        - run: cat app/mac/app.mac
+        - run: pwd
+        - run: ls   
         - attach_workspace:
             at: /tmp/workspace
+        - run: cat /tmp/workspace      
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
             path: /tmp/artifact
             destination: store_artifacts
