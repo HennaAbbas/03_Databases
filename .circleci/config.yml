@@ -55,7 +55,7 @@ jobs:
             at: /tmp/workspace
         - run: ls /tmp/workspace/mac     
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
-            path: /tmp/artifact
+            path: /tmp/workspace
             destination: store_artifacts
 
 workflows:
