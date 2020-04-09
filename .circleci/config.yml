@@ -41,6 +41,7 @@ jobs:
         - persist_to_workspace: 
             root: app
             paths: mac/app.mac
+        - run: cat app/mac/app.mac    
 
   deploy:
       docker:
