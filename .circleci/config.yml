@@ -41,17 +41,17 @@ jobs:
         - persist_to_workspace: 
             root: app
             paths: mac/app.mac
-        - run: cat app/mac/app.mac    
+         
 
   deploy:
       docker:
         - image: node
       steps:
         - attach_workspace:
-            at: <location>
+            at: /tmp/workspace
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
-            path: store_artifacts
-            # destination: app/store_artifacts
+            path: /tmp/artifact
+            destination: store_artifacts
 
 workflows:
   version: 2
