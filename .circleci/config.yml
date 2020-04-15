@@ -2,7 +2,7 @@ version: 2.1
 executor:
   custom-node:
     docker:
-      circleci/node
+      - image: circleci/node
 
 commands:
   generatelogs:
@@ -14,8 +14,8 @@ commands:
     steps:
       - run: echo "Log file" > <<parameters.path>>/log.txt
       - run: pwd
-      
-  endMission:
+
+  endmission:
     description: "Use the parameters of this command to exit this mission with a green build."
     parameters:
       exitCode:
@@ -37,7 +37,7 @@ jobs:
               echo "The log should exist at ~/project/log.txt after running the 'generatelogs' command"
               exit 1
             fi
-      - endMission
+      - endmission
 
 
 
